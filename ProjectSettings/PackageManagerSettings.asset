@@ -26,6 +26,7 @@ MonoBehaviour:
     m_Scopes:
     - com.littlebigfun.addressable-importer
     - com.openupm
+    - net.tnrd.nsubstitute
     m_IsDefault: 0
   m_UserSelectedRegistryName: 
   m_UserAddingNewScopedRegistry: 0
@@ -38,6 +39,7 @@ MonoBehaviour:
       m_Scopes:
       - com.littlebigfun.addressable-importer
       - com.openupm
+      - net.tnrd.nsubstitute
       m_IsDefault: 0
     m_Modified: 0
     m_Name: package.openupm.com
@@ -45,4 +47,5 @@ MonoBehaviour:
     m_Scopes:
     - com.littlebigfun.addressable-importer
     - com.openupm
+    - net.tnrd.nsubstitute
     m_SelectedScopeIndex: 0
