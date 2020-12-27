@@ -1,6 +1,8 @@
 {
     "name": "Unity.Com.UnityBedrock.Pooler.Editor.Tests",
-    "references": [],
+    "references": [
+        "GUID:47fe16557241c434aa12ec945a852ea0"
+    ],
     "includePlatforms": [
         "Editor"
     ],

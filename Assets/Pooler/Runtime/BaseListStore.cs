@@ -7,17 +7,17 @@ namespace Com.UnityBedrock.Pooler
     /// <summary>
     /// Implementation of the <see cref="IStore" /> interface which uses a list as the container.
     /// </summary>
-    /// <typeparam name="TCachedObject"></typeparam>
-    public class BaseListStore<TCachedObject> : IStore<TCachedObject>
+    /// <typeparam name="TStoredObject"></typeparam>
+    public class BaseListStore<TStoredObject> : IStore<TStoredObject>
     {
-        private readonly List<TCachedObject> _cacheList;
+        private readonly List<TStoredObject> _cacheList;
 
         /// <summary>
         /// Constructor.
         /// </summary>
         public BaseListStore()
         {
-            _cacheList = new List<TCachedObject>();
+            _cacheList = new List<TStoredObject>();
         }
 
         /// <inheritdoc />
@@ -30,7 +30,7 @@ namespace Com.UnityBedrock.Pooler
         }
 
         /// <inheritdoc />
-        public void Add(TCachedObject objectToCache)
+        public void Add(TStoredObject objectToCache)
         {
             _cacheList.Add(objectToCache);
         }
@@ -42,31 +42,31 @@ namespace Com.UnityBedrock.Pooler
         }
 
         /// <inheritdoc />
-        public bool Contains(TCachedObject objectToCheck)
+        public bool Contains(TStoredObject objectToCheck)
         {
             return _cacheList.Contains(objectToCheck);
         }
 
         /// <inheritdoc />
-        public TCachedObject Pop()
+        public TStoredObject Pop()
         {
             if (_cacheList.Count == 0)
             {
-                throw new InvalidOperationException("Cannot pop from empty cache.");
+                throw new InvalidOperationException("Cannot pop from empty store.");
             }
-            TCachedObject cachedObject = _cacheList[0];
+            TStoredObject cachedObject = _cacheList[0];
             _cacheList.Remove(cachedObject);
             return cachedObject;
         }
 
         /// <inheritdoc />
-        public void Remove(TCachedObject objectToRemove)
+        public void Remove(TStoredObject objectToRemove)
         {
             _cacheList.Remove(objectToRemove);
         }
 
         /// <inheritdoc />
-        public IEnumerator<TCachedObject> GetEnumerator()
+        public IEnumerator<TStoredObject> GetEnumerator()
         {
             return _cacheList.GetEnumerator();
         }
