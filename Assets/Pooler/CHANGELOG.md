@@ -18,3 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - License and changelog.
+
+## [1.0.0] - 2020-12-27
+
+### Added
+
+- Tests for all classes.
+- Fix for the `BaseGameObjectFactory` not parenting newly instantiated objects correctly.
+
+### Changed
+
+- Some file names to be consistent with the class names they contain.
