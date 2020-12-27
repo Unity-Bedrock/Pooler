@@ -7,6 +7,8 @@ Comes with built-in support for pooling Game Objects, but it can also be used fo
 
 ## Getting the Asset
 
+[![openupm](https://img.shields.io/npm/v/com.unity-bedrock.pooler?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.unity-bedrock.pooler/)
+
 You can get the asset by downloading the latest release on [GitHub](https://github.com/Unity-Bedrock/Pooler/releases).
 
 Or... If you want to use the package manager, you can download the package via [openupm](https://openupm.com/packages/com.unity-bedrock.pooler), or run the following command if you have the openupm CLI installed:
