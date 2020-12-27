@@ -19,7 +19,7 @@ namespace Com.UnityBedrock.Pooler.GameObjects
         /// <inheritdoc />
         public GameObject Create()
         {
-            return Object.Instantiate(_gameObjectPrefab, Vector3.zero, Quaternion.identity);
+            return Object.Instantiate(_gameObjectPrefab, Vector3.zero, Quaternion.identity, _parent);
         }
     }
 }
