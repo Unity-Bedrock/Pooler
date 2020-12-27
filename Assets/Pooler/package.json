@@ -1,0 +1,15 @@
+{
+    "name": "com.unity-bedrock.pooler",
+    "version": "0.0.1",
+    "displayName": "Pooler",
+    "description": "A simple and extensible package for pooling objects in Unity.",
+    "keywords": [
+        "pooling",
+        "pool",
+        "simple",
+        "extensible"
+    ],
+    "author": {
+        "name": "feko006"
+    }
+}
