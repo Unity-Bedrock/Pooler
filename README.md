@@ -5,6 +5,18 @@ Comes with built-in support for pooling Game Objects, but it can also be used fo
 
 ---
 
+## Getting the Asset
+
+You can get the asset by downloading the latest release on [GitHub](https://github.com/Unity-Bedrock/Pooler/releases).
+
+Or... If you want to use the package manager, you can download the package via [openupm](https://openupm.com/packages/com.unity-bedrock.pooler), or run the following command if you have the openupm CLI installed:
+
+```bat
+openupm add com.unity-bedrock.pooler
+```
+
+---
+
 ## Getting Started
 
 To start using Pooler for Game Objects, attach the `GameObjectPooler` behaviour to any GameObject in your scene, set the `GameObjectPrefab`, `Parent` and optionally, the `InitialCapacity` fields and you are set to go.
