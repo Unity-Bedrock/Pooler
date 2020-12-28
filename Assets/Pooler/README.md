@@ -3,7 +3,27 @@
 A lightweight, extensible way of working with Pools in Unity.
 Comes with built-in support for pooling Game Objects, but it can also be used for pooling any kind of object.
 
----
+## UPM Package
+
+### GitHub
+
+You can download the asset manually from the [GitHub releases](https:/
+/github.com/Unity-Bedrock/Pooler/releases)...
+
+Or you can import directly via the Unity Package Manager by using the following Git Urls:
+
+- Latest release - `https://github.com/Unity-Bedrock/Pooler.git?path=Assets/Pooler`
+- Particular release - e.g. `https://github.com/Unity-Bedrock/Pooler.git?path=Assets/Pooler#1.0.0` (replace 1.0.0 with desired version)
+
+### OpenUPM
+
+[![openupm](https://img.shields.io/npm/v/com.unity-bedrock.pooler?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.unity-bedrock.pooler/)
+
+You can download the package from [openupm](https://openupm.com/packages/com.unity-bedrock.pooler), or run the following command if you have the openupm CLI installed:
+
+```bat
+openupm add com.unity-bedrock.pooler
+```
 
 ## Getting Started
 
@@ -14,8 +34,6 @@ You can then access the `Pooler` property inside this behaviour to get new and r
 You can call `GetObject()` to retrieve an object from the pool.  
 
 It is also good practise to return the objects once you are done with them in order to be able to reuse or clean them up later. You can return objects with the `ReturnObject(yourObject)` method and clean the unused object store with the `ClearAvailableObjects()` method.
-
----
 
 ## Extending the Pooler
 
@@ -42,8 +60,6 @@ basePooler = new BasePooler<string>(
 ```
 
 Notice how the 4th argument is empty. We do not need to dispose of these strings ourselves, the garbage collector will take care of that for us, so there is no need to implement and use a disposer.
-
----
 
 ## License
 
