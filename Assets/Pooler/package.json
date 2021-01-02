@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "displayName": "Pooler",
     "description": "A simple and extensible package for pooling objects in Unity.",
+    "dependencies": {
+        "net.tnrd.nsubstitute": "4.2.2"
+    },
     "keywords": [
         "pooling",
         "pool",
