@@ -43,3 +43,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - NSubstitute dependency.
+
+## [1.1.1] - 2021-01-02
+
+### Changed
+
+- Fixed being able to go over the maximum capacity when returning objects to the BasePooler.
