@@ -76,8 +76,9 @@ namespace Com.UnityBedrock.Pooler.Tests
         [Test]
         public void Pop_OnEmptyList_ThrowsException()
         {
-            Assert.Throws<InvalidOperationException>(
-                () => _baseListStore.Pop());
+            var elementPoppedOnEmptyList = _baseListStore.Pop();
+            
+            Assert.IsNull(elementPoppedOnEmptyList);
         }
 
         [Test]
