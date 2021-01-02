@@ -29,3 +29,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Some file names to be consistent with the class names they contain.
+
+## [1.1.0] - 2021-01-02
+
+### Added
+
+- Option to specify maximum number of objects in the BasePooler.
+
+### Changed
+
+- Disabled tests using NSubstitute.
+
+### Removed
+
+- NSubstitute dependency.
