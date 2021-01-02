@@ -36,7 +36,7 @@ namespace Com.UnityBedrock.Pooler
         /// <summary>
         /// Removes an object from the store.
         /// </summary>
-        /// <returns>The removed object.</returns>
+        /// <returns>The removed object or null if no object could be removed.</returns>
         TStoredObject Pop();
 
         /// <summary>

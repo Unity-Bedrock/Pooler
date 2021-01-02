@@ -1,3 +1,5 @@
+using System;
+
 namespace Com.UnityBedrock.Pooler
 {
     /// <summary>
@@ -10,6 +12,7 @@ namespace Com.UnityBedrock.Pooler
         protected IStore<TPooledObject> UnusedObjectStore { get; private set; }
         protected IStore<TPooledObject> UsedObjectStore { get; private set; }
         protected IDisposer<TPooledObject> ObjectDisposer { get; private set; }
+        protected int MaximumObjects { get; private set; }
 
         /// <summary>
         /// Constructor.
@@ -18,16 +21,19 @@ namespace Com.UnityBedrock.Pooler
         /// <param name="unusedObjectStore">Cache for the unused objects.</param>
         /// <param name="usedObjectStore">Cache for the used objects.</param>
         /// <param name="objectDisposer">Optional disposer for objects which are no longer needed.</param>
+        /// <param name="maximumObjects">The maximum number of objects that can be created in the pool.</param>
         public BasePooler(
             IFactory<TPooledObject> objectFactory,
             IStore<TPooledObject> unusedObjectStore,
             IStore<TPooledObject> usedObjectStore,
-            IDisposer<TPooledObject> objectDisposer = null)
+            IDisposer<TPooledObject> objectDisposer = null,
+            int maximumObjects = int.MaxValue)
         {
             ObjectFactory = objectFactory;
             UnusedObjectStore = unusedObjectStore;
             UsedObjectStore = usedObjectStore;
             ObjectDisposer = objectDisposer;
+            MaximumObjects = maximumObjects;
         }
 
         /// <inheritdoc />
@@ -40,6 +46,7 @@ namespace Com.UnityBedrock.Pooler
                     ObjectDisposer.Dispose(unusedObject);
                 }
             }
+
             UnusedObjectStore.Clear();
         }
 
@@ -48,6 +55,11 @@ namespace Com.UnityBedrock.Pooler
         {
             while (UnusedObjectStore.Count < requestedCapacity)
             {
+                if (UnusedObjectStore.Count + UsedObjectStore.Count == MaximumObjects)
+                {
+                    return;
+                }
+
                 TPooledObject newPooledObject = ObjectFactory.Create();
                 UnusedObjectStore.Add(newPooledObject);
             }
@@ -58,7 +70,11 @@ namespace Com.UnityBedrock.Pooler
         {
             EnsureCapacity(1);
             TPooledObject newPooledObject = UnusedObjectStore.Pop();
-            UsedObjectStore.Add(newPooledObject);
+            if (newPooledObject != null)
+            {
+                UsedObjectStore.Add(newPooledObject);
+            }
+
             return newPooledObject;
         }
 
@@ -69,6 +85,7 @@ namespace Com.UnityBedrock.Pooler
             {
                 UsedObjectStore.Remove(objectToRelease);
             }
+
             UnusedObjectStore.Add(objectToRelease);
         }
     }

@@ -9,6 +9,7 @@ namespace Com.UnityBedrock.Pooler
     /// </summary>
     /// <typeparam name="TStoredObject"></typeparam>
     public class BaseListStore<TStoredObject> : IStore<TStoredObject>
+        where TStoredObject : class
     {
         private readonly List<TStoredObject> _cacheList;
 
@@ -23,10 +24,7 @@ namespace Com.UnityBedrock.Pooler
         /// <inheritdoc />
         public int Count
         {
-            get
-            {
-                return _cacheList.Count;
-            }
+            get { return _cacheList.Count; }
         }
 
         /// <inheritdoc />
@@ -52,8 +50,9 @@ namespace Com.UnityBedrock.Pooler
         {
             if (_cacheList.Count == 0)
             {
-                throw new InvalidOperationException("Cannot pop from empty store.");
+                return null;
             }
+
             TStoredObject cachedObject = _cacheList[0];
             _cacheList.Remove(cachedObject);
             return cachedObject;

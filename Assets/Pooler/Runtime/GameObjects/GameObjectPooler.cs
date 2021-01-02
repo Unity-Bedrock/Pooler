@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Com.UnityBedrock.Pooler.GameObjects
 {
     /// <summary>
-    /// Monobehaviour used for pooling game objects.
+    /// MonoBehaviour used for pooling game objects.
     /// </summary>
     public class GameObjectPooler : MonoBehaviour
     {
@@ -19,6 +19,10 @@ namespace Com.UnityBedrock.Pooler.GameObjects
         [SerializeField]
         [Tooltip("If greater than 0, will ensure the pool is initialized with that many objects.")]
         private int _initialCapacity;
+
+        [SerializeField]
+        [Tooltip("If greater than 0, will enforce a maximum capacity on the pooler.")]
+        private int _maximumCapacity;
 
         private Transform Parent
         {
@@ -47,11 +51,13 @@ namespace Com.UnityBedrock.Pooler.GameObjects
             IStore<GameObject> unusedObjectStore = new BaseListStore<GameObject>();
             IStore<GameObject> usedObjectStore = new BaseListStore<GameObject>();
             IDisposer<GameObject> objectDisposer = new BaseGameObjectDisposer();
+            int maximumCapacity = _maximumCapacity > 0 ? _maximumCapacity : int.MaxValue;
             Pooler = new BasePooler<GameObject>(
                 objectFactory,
                 unusedObjectStore,
                 usedObjectStore,
-                objectDisposer);
+                objectDisposer,
+                maximumCapacity);
             if (_initialCapacity > 0)
             {
                 Pooler.EnsureCapacity(_initialCapacity);
