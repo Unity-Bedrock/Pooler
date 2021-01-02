@@ -1,11 +1,9 @@
-using System;
-
 namespace Com.UnityBedrock.Pooler
 {
     /// <summary>
-    /// Default implementation of the <see cref="IPooler" /> interface.
+    /// Default implementation of the <see cref="IPooler{TPooledObject}" /> interface.
     /// </summary>
-    /// <typeparam name="TPooledObject"></typeparam>
+    /// <typeparam name="TPooledObject">The type of object to be pooled.</typeparam>
     public class BasePooler<TPooledObject> : IPooler<TPooledObject>
     {
         protected IFactory<TPooledObject> ObjectFactory { get; private set; }
@@ -84,9 +82,8 @@ namespace Com.UnityBedrock.Pooler
             if (UsedObjectStore.Contains(objectToRelease))
             {
                 UsedObjectStore.Remove(objectToRelease);
+                UnusedObjectStore.Add(objectToRelease);
             }
-
-            UnusedObjectStore.Add(objectToRelease);
         }
     }
 }

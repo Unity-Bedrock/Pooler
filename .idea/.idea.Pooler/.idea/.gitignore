@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Pooler.iml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\Feko\Desktop\projects\Unity\Bedrock\Pooler\.idea\.idea.Pooler\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
